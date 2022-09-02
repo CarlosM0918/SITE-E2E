@@ -1,8 +1,13 @@
 /// <reference types="cypress"/>
 
-it('Google Search', () => {
-    cy.viewport(1920, 1080)
-    cy.visit("https://site-e2e-git-develop-nyla.vercel.app/products/qa");
-    var a = cy.title()
-    cy.log(a)
+import {ProductPage} from "./Pages/product_page"
+
+const productPage = new ProductPage()
+
+
+describe("Products in cart", () => {
+    it("Check that the product in the basket is the same as the one you have selected.", () =>{
+        productPage.clickAddToCart();
+        productPage.VerifyPoductCardsTitle("Domino Black ")
+    })  
 })
