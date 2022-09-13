@@ -44,6 +44,7 @@ export class ProductPage{
         cy.get(this.lblBlackColor).click();
     }
 
+
     /*-------------------------------------------- Assert --------------------------------------------*/
 
     /**
