@@ -1,3 +1,6 @@
+import {ProductPage} from "../e2e/Pages/product_page"
+const productPage = new ProductPage()
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +26,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("ValidateCorrectProduct",()=>{
+    productPage.clickAddToCart();
+    cy.get(productPage.divProductCardsTitle).should("contain", "Domino Black ")
+})

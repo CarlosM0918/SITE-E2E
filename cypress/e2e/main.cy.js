@@ -7,14 +7,13 @@ const productPage = new ProductPage()
 
 describe("Products in cart", () => {
     it("Check that the product in the basket is the same as the one you have selected.", () =>{
-        productPage.clickAddToCart();
-        productPage.verifyPoductCardsTitle("Domino Black ");
+        cy.ValidateCorrectProduct();
     })
 
     it("User change the quantity", ()=>{
         productPage.incrementQuantityIn(3);
         productPage.clickAddToCart();
-        productPage.verifyQuantityOfProductInCart();
+        cy.get(productPage.boxQuantity, {timeout: 5000}).should('be.visible').and('contain.text', 4)
     })
 })
 
@@ -23,11 +22,11 @@ describe("Validate change color", () =>{
         productPage.clickBlackColor();
         productPage.clickEmailMe();
         productPage.clickEmailMeWhenAvailable();
-        productPage.verifyTheEmailIsNotSend();
+        cy.get(productPage.lblErrorMessage).should('be.visible').and('contain', 'Please provide a valid email')
     })
 
     it("User change the color of the product.", () =>{
         productPage.clickBlackColor();
-        productPage.verifyPoductChangeToColorDerbyBlack();
+        cy.get(productPage.lblNameColor, {timeout: 5000}).should('be.visible').and('contain.text', 'Shade:  Derby Black')
     })
 })
