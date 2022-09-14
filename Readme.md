@@ -32,6 +32,8 @@ The tools and programming language used on this project are:
 ## 3.2 Execution
 
 * Run in UI `npm run cy-open`
+  * Select E2E Testing
+  * Select the browser of your choice
 * Run in Headless mode `npm run cy-run`
 
 
