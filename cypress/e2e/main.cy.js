@@ -9,7 +9,7 @@ describe("Products in cart", () => {
         cy.ValidateCorrectProduct();
     })
 
-    it.only("User change the quantity", ()=>{
+    it("User change the quantity", ()=>{
         productPage.incrementQuantityIn();
         cy.get(productPage.boxQuantity, {timeout: 5000}).should('contain.text', 2)
     })
