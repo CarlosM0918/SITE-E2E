@@ -11,7 +11,7 @@ describe("Products in cart", () => {
 
     it.only("User change the quantity", ()=>{
         productPage.incrementQuantityIn();
-        cy.get(productPage.boxQuantity, {timeout: 5000}).should('be.visible').and('contain.text', 2)
+        cy.get(productPage.boxQuantity, {timeout: 5000}).should('contain.text', 2)
     })
 })
 
